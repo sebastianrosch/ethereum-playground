@@ -1,8 +1,8 @@
 # Ethereum Playground
 
 1. Install `geth`.
-2. Run `git clone https://github.com/cubedro/eth-netstats.git`
-3. Run `git clone https://github.com/cubedro/eth-net-intelligence-api.git`
+2. Run `git clone https://github.com/cubedro/eth-net-intelligence-api.git`
+3. Run `git clone https://github.com/cubedro/eth-netstats.git`
 4. Run `git clone https://github.com/ethnamed/eth-explorer.git`
 
 5. Create a new local account.
@@ -21,9 +21,6 @@ geth init genesis.json
 ```sh
 geth \
     --networkid 15151 \
-    --bootnodes "enode://<ENODE>@<IP>:30303" \
-    --mine \
-    --minerthreads=1 \
     --rpc \
     --rpcport "8545" \
     --rpccorsdomain "http://localhost:8000" \
@@ -57,6 +54,35 @@ cd eth-netstats && WS_SECRET=ethereum npm start
 cd eth-explorer && npm start
 ```
 
+15. Start mining.
+```sh
+geth \
+    --networkid 15151 \
+    --mine \
+    --minerthreads=1 \
+    --rpc \
+    --rpcport "8545" \
+    --rpccorsdomain "http://localhost:8000" \
+    --port "30303" \
+    --nat "any"  \
+    --identity "<NODE_NAME>"
+```
+
+16. Connect to another node.
+```sh
+geth \
+    --networkid 15151 \
+    --bootnodes "enode://<ENODE>@<IP>:30303" \
+    --mine \
+    --minerthreads=1 \
+    --rpc \
+    --rpcport "8545" \
+    --rpccorsdomain "http://localhost:8000" \
+    --port "30303" \
+    --nat "any"  \
+    --identity "<NODE_NAME>"
+```
+
 # Web3 Commands
 
 - Show the connected peer nodes.
@@ -81,7 +107,7 @@ eth.getBalance(eth.coinbase)
 
 - Send a transaction.
 ```sh
-eth.sendTransaction({from:'<FROM_ADRESS', to:'<TO_ADRESS', value: toWei(0.05, "ether"), gas:21000});
+eth.sendTransaction({from:'<FROM_ADRESS', to:'<TO_ADRESS>', value: toWei(0.05, "ether"), gas:21000});
 ```
 
 - Leave the Web3 console.
