@@ -26,7 +26,7 @@ geth \
     --rpccorsdomain "http://localhost:8000" \
     --port "30303" \
     --nat "any"  \
-    --identity "AWORK-HORIZON"
+    --identity "<NODE_NAME>"
 ```
 
 9. In a new terminal, attach to the node to execute web3 commands.
@@ -51,7 +51,7 @@ cd eth-netstats && npm install && grunt && WS_SECRET=ethereum npm start
 
 14. In a new terminal, run the block explorer UI.
 ```sh
-cd eth-explorer && npm insatall && bower install && npm start
+cd eth-explorer && npm install && bower install && npm start
 ```
 
 15. Start mining.
