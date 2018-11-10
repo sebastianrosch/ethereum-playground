@@ -26,7 +26,7 @@ geth \
     --rpccorsdomain "http://localhost:8000" \
     --port "30303" \
     --nat "any"  \
-    --identity "<NODE_NAME>"
+    --identity "AWORK-HORIZON"
 ```
 
 9. In a new terminal, attach to the node to execute web3 commands.
@@ -46,12 +46,12 @@ cd eth-net-intelligence-api && pm2 start app.json
 
 13. In a new terminal, run the net status UI.
 ```sh
-cd eth-netstats && WS_SECRET=ethereum npm start
+cd eth-netstats && npm install && grunt && WS_SECRET=ethereum npm start
 ```
 
 14. In a new terminal, run the block explorer UI.
 ```sh
-cd eth-explorer && npm start
+cd eth-explorer && npm insatall && bower install && npm start
 ```
 
 15. Start mining.
@@ -133,3 +133,6 @@ https://github.com/juanfranblanco/vscode-solidity
 https://remix.ethereum.org/
 https://blog.zeppelin.solutions/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05
 https://medium.com/mercuryprotocol/dev-highlights-of-this-week-cb33e58c745f
+
+## Angular dApp
+https://blog.fundrequest.io/calling-your-first-smart-contract-function-with-web3-and-angular5-aa1bde26a55c
