@@ -35,7 +35,7 @@ geth attach
 ```
 
 10. Adjust the `app.json` in `eth-net-intelligence-api`.
-For `INSTANCE_NAME`, pick the same as `identity` above. For `WS_SECRET`, use `ethereum`.
+For `INSTANCE_NAME`, pick the same as `identity` above. For `WS_SECRET`, use `ethereum`. For `WS_SERVER`, use `http://localhost:3000`.
 
 11. In a new terminal, attach the net status listener.
 ```sh
@@ -92,12 +92,17 @@ admin.peers
 
 - Unlock account for transactions.
 ```sh
-personal.unlockAccount(personal.listAccounts[0], "<PASSWORD>", 15000000)
+personal.unlockAccount(eth.coinbase, "<PASSWORD>", 15000000)
 ```
 
 - Get current coinbase address. Mined coins are sent to this address.
 ```sh
 eth.coinbase
+```
+
+- Set your default account to your coinbase.
+```sh
+eth.defaultAccount = eth.coinbase
 ```
 
 - Check account balance.
