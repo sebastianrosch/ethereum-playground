@@ -35,7 +35,7 @@ geth attach
 ```
 
 10. Adjust the `app.json` in `eth-net-intelligence-api`.
-For `INSTANCE_NAME`, pick the same as `identity` above. For `WS_SECRET`, use `ethereum`. For `WS_SERVER`, use `http://localhost:3000`.
+For `INSTANCE_NAME`, use the `NODE_NAME` from above. For `WS_SECRET`, use `ethereum`. For `WS_SERVER`, use `http://localhost:3000`.
 
 11. In a new terminal, attach the net status listener.
 ```sh
@@ -112,7 +112,7 @@ eth.getBalance(eth.coinbase)
 
 - Send a transaction.
 ```sh
-eth.sendTransaction({from:'<FROM_ADRESS', to:'<TO_ADRESS>', value: toWei(0.05, "ether"), gas:21000});
+eth.sendTransaction({from:eth.coinbase, to:'<TO_ADDRESS>', value: web3.toWei(0.05, "ether"), gas:21000});
 ```
 
 - Leave the Web3 console.

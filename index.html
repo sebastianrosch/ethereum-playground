@@ -269,7 +269,7 @@
 						<p class="fragment fade-in-then-semi-out">
 							Copy your account address
 							<br/>
-							<small>into the <code style="color:indianred">genesis.json</code> to init some ether.</small>
+							<small>into the <code style="color:indianred">genesis.json</code> to init some ether (> 1000000).</small>
 						</p>
 						<p class="fragment fade-in-then-semi-out">
 							Init your node with the genesis block
@@ -311,15 +311,15 @@ geth \
 					<section>
 						<h3>Run the Utils 1/3</h3>
 						<p class="fragment fade-in-then-semi-out">
-							Adjust the <code style="color:indianred">app.json</code> in <code style="color:indianred">eth-net-intelligence-api</code>
+							Adjust the <code style="color:indianred">app.json</code> in <code>eth-net-intelligence-api</code>
 							<br/>
-							<small>For <code style="color:indianred">INSTANCE_NAME</code>, pick the same as <code style="color:indianred">identity</code> above.<br/>
+							<small>For <code style="color:indianred">INSTANCE_NAME</code>, use the <code style="color:indianred">NODE_NAME</code> from above.<br/>
 								For <code style="color:indianred">WS_SECRET</code>, use <code style="color:indianred">ethereum</code>.</small>
 						</p>
 						<p class="fragment fade-in-then-semi-out">
 							In a new terminal, attach the net status listener
 							<br/>
-							<small><code>cd eth-net-intelligence-api && pm2 start app.json</code></small>
+							<small><code>cd eth-net-intelligence-api && npm install && pm2 start app.json</code></small>
 						</p>
 					</section>
 					<section>
@@ -327,7 +327,7 @@ geth \
 						<p class="fragment fade-in-then-semi-out">
 							In a new terminal, run the net status UI
 							<br/>
-							<small><code>cd eth-netstats && WS_SECRET=ethereum npm start</code></small>
+							<small><code>cd eth-netstats && npm install && grunt && WS_SECRET=ethereum npm start</code></small>
 						</p>
 						<p class="fragment fade-in-then-semi-out">
 							Open the net status UI
@@ -338,9 +338,14 @@ geth \
 					<section>
 						<h3>Run the Utils 3/3</h3>
 						<p class="fragment fade-in-then-semi-out">
+							Adjust the <code style="color:indianred">config.json</code> in <code>eth-explorer/app</code>
+							<br/>
+							<small>Set <code>rpcUrl</code> to <code>http://localhost:8545</code>.</small>
+						</p>
+						<p class="fragment fade-in-then-semi-out">
 							In a new terminal, run the block explorer UI
 							<br/>
-							<small><code>cd eth-explorer && npm start</code></small>
+							<small><code>cd eth-explorer && npm install && bower install && npm start</code></small>
 						</p>
 						<p class="fragment fade-in-then-semi-out">
 							Open the block explorer UI
@@ -368,6 +373,14 @@ geth \
 					</section>
 					<section>
 						<h3>Create private network</h3>
+						<p class="fragment fade-in-then-semi-out">
+							Start another node on your local network
+							<br/>
+							<small>and create an account there.</small>
+						</p>
+						<p class="fragment fade-in-then-semi-out">
+							Copy the node's <code>enode</code> address and IP address
+						</p>
 						<p class="fragment fade-in-then-semi-out">
 							Restart <code>geth</code>
 							<br/>
